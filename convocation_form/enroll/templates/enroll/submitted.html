@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student List{% endblock title %}</title>
+
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'enroll/css/style.css' %}">
+</head>
+<body>
+    
+    {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h4 class="mt-5">Registration list</h4> <hr>
+          <table class="table-hover">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Father's Name</th>
+                <th scope="col">Mother's Name</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Reg/Id</th>
+                <th scope="col">CGPA</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              {% for stu in sub_list %}
+                <tr class="table-group-divider">
+                  <th scope="col">{{stu.id}}</th>
+                  <td scope="col">{{stu.name}}</td>
+                  <td scope="col">{{stu.father_name}}</td>
+                  <td scope="col">{{stu.mother_name}}</td>
+                  <td scope="col">{{stu.date_of_birth}}</td>
+                  <td scope="col">{{stu.reg_no}}</td>
+                  <td scope="col">{{stu.cgpa}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% endblock content %}
+
+    <script src="{% static 'enroll/js/jquery.js' %}"></script>
+    <script src="{% static 'enroll/js/popper.js' %}"></script>
+    <script src="{% static 'enroll/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
